@@ -15,13 +15,8 @@ import { useState } from "react";
 import { useSignIn } from "@clerk/clerk-expo";
 import { authStyles } from "../../assets/styles/auth.styles";
 import { COLORS } from "../../constants/colors";
-import { useHeaderHeight } from "@react-navigation/elements";
 
 const SignInScreen = () => {
-
-  const headerHeight = useHeaderHeight();
-  console.log(headerHeight);
-
   const router = useRouter();
   const { signIn, setAcive, isLoaded } = useSignIn();
   const [email, setEmail] = useState("");
@@ -65,7 +60,7 @@ const SignInScreen = () => {
         enabled
         style={authStyles.keyboardView}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        keyboardVerticalOffset={headerHeight}
+        keyboardVerticalOffset={64}
       >
         <ScrollView
           contentContainerStyle={authStyles.scrollContent}
