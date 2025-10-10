@@ -78,7 +78,7 @@ export const MealAPI = {
         }
     },
     //^ filter by category
-    filterByIngredent: async (category) => {
+    filterByCategory: async (category) => {
         try {
             const response = await fetch(`${BASE_URL}/filter.php?=${encodeURIComponent(category)}`);
             const data = await response.json();
@@ -99,7 +99,7 @@ export const MealAPI = {
             const ingredent = meal[`strIngredients${i}`];
             const measure = meal[`strMeasures${i}`];
 
-            if (!ingredent && ingredent.trim()) {
+            if (ingredent && ingredent.trim()) {
                 const measureTxt = measure && measure.trim() ? `${measure.trim()}` : "";
                 ingredents.push(`${measureTxt}${ingredent.trim()}`);
             }
