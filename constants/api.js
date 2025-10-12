@@ -1,0 +1,1 @@
+export const API_URL = "https://foodwala-api.onrender.com/api"

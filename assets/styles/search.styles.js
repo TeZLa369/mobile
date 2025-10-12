@@ -105,7 +105,7 @@ export const searchStyles = StyleSheet.create({
         paddingBottom: 32,
     },
     row: {
-        justifyContent: "space-between",
+        justifyContent: "space-evenly",
     },
     emptyState: {
         flex: 1,
