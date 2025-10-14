@@ -73,8 +73,9 @@ const FavoritesScreen = () => {
           <FlatList
             data={favRecipes}
             renderItem={({ item }) => <RecipeCard recipe={item} />}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id}
             numColumns={2}
+            columnWrapperStyle={favoritesStyles.row}
             contentContainerStyle={favoritesStyles.recipesGrid}
             scrollEnabled={false}
             ListEmptyComponent={<NoFavFound />}

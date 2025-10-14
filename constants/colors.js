@@ -26,6 +26,7 @@ const purpleTheme = {
     text: "#4A148C",
     border: "#D1C4E9",
     white: "#FFFFFF",
+    grey:"#808080",
     textLight: "#BA68C8",
     card: "#FFFFFF",
     shadow: "#000000",

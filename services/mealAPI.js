@@ -19,7 +19,7 @@ export const MealAPI = {
     //^ LOOKUP full meal details by ID
     getMealById: async (id) => {
         try {
-            const response = await fetch(`${BASE_URL}/lookup.php?=${id}`);
+            const response = await fetch(`${BASE_URL}/lookup.php?i=${id}`);
             const data = await response.json();
             return data.meals ? data.meals[0] : null;
         } catch (error) {
@@ -65,14 +65,14 @@ export const MealAPI = {
         }
     },
 
-    //^ filter by main ingredent
-    filterByIngredent: async (ingredent) => {
+    //^ filter by main ingredient
+    filterByIngredent: async (ingredient) => {
         try {
-            const response = await fetch(`${BASE_URL}/filter.php?=${encodeURIComponent(ingredent)}`);
+            const response = await fetch(`${BASE_URL}/filter.php?=${encodeURIComponent(ingredient)}`);
             const data = await response.json();
             return data.meals || null;
         } catch (error) {
-            console.error("Error filtering by ingredents: ", error);
+            console.error("Error filtering by ingredients: ", error);
             return [];
 
         }
@@ -94,14 +94,14 @@ export const MealAPI = {
         if (!meal) return null;
 
         // ^ extract ingredients from the meal object
-        const ingredents = [];
+        const ingredients = [];
         for (let i = 1; i < 20; i++) {
-            const ingredent = meal[`strIngredients${i}`];
+            const ingredient = meal[`strIngredient${i}`];
             const measure = meal[`strMeasures${i}`];
 
-            if (ingredent && ingredent.trim()) {
+            if (ingredient && ingredient.trim()) {
                 const measureTxt = measure && measure.trim() ? `${measure.trim()}` : "";
-                ingredents.push(`${measureTxt}${ingredent.trim()}`);
+                ingredients.push(`${measureTxt}${ingredient.trim()}`);
             }
         }
 
@@ -117,7 +117,7 @@ export const MealAPI = {
             servings: 4,
             category: meal.strCategory || "Main Course",
             area: meal.strArea,
-            ingredents,
+            ingredients,
             instructions,
             originalData: meal,
         };

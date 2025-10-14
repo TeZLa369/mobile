@@ -72,6 +72,7 @@ export const favoritesStyles = StyleSheet.create({
     recipesSection: {
         paddingHorizontal: 16,
         marginTop: 24,
+        
         paddingBottom: 32,
     },
     recipesGrid: {

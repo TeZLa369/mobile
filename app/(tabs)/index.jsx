@@ -51,7 +51,9 @@ const HomeScreen = () => {
       setRecipes(transformedMeals);
 
       const transformedFeaturedMeal = MealAPI.transformMealData(featuredMeal);
+
       setFeaturedRecipe(transformedFeaturedMeal);
+
     } catch (error) {
       console.error("Error loading the data: ", error);
     } finally {
@@ -196,11 +198,7 @@ const HomeScreen = () => {
 
           <FlatList
             data={recipes}
-            renderItem={({ item }) => (
-              <Text>
-                <RecipeCard recipe={item} />
-              </Text>
-            )}
+            renderItem={({ item }) => <RecipeCard recipe={item} />}
             keyExtractor={(item) => item.id.toString()}
             numColumns={2}
             columnWrapperStyle={homeStyles.row}
